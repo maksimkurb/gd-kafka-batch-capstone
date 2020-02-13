@@ -1,0 +1,8 @@
+{
+  "properties": [
+    {
+      "name": "hdd.consumer.kafkaTopic",
+      "type": "java.lang.String",
+      "description": "Description for hdd.consumer.kafkaTopic."
+  }
+] }

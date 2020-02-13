@@ -1,0 +1,44 @@
+version: '3'
+services:
+  consul:
+    container_name: capstone_mk_consul
+    image: consul:latest
+    ports:
+      - "8400:8400"
+      - "8500:8500"
+      - "8600:8600"
+      - "8600:8600/udp"
+    volumes:
+    - ./consul-services:/consul-services
+
+  postgresql:
+    container_name: capstone_mk_postgresql
+    image: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=spring
+      - POSTGRES_PASSWORD=spring
+      - POSTGRES_DB=spring
+    volumes:
+      - postgres-pet:/var/lib/postgresql
+
+  zookeeper:
+    container_name: capstone_mk_zk
+    image: 'bitnami/zookeeper:latest'
+    environment:
+      ALLOW_ANONYMOUS_LOGIN: 'yes'
+
+  kafka:
+    container_name: capstone_mk_kafka
+    image: 'bitnami/kafka:latest'
+    ports:
+      - 9092:9092
+    environment:
+      ALLOW_PLAINTEXT_LISTENER: 'yes'
+      KAFKA_CFG_ADVERTISED_HOST_NAME: localhost
+      KAFKA_CFG_ADVERTISED_LISTENERS: PLAINTEXT://127.0.0.1:9092
+      KAFKA_CFG_ZOOKEEPER_CONNECT: zookeeper:2181
+
+volumes:
+  postgres-pet:

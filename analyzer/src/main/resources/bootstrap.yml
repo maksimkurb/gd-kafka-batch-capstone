@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: analyzer
+  cloud:
+    inetutils:
+      ignoredInterfaces:
+        - docker0
+        - veth.*
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        prefer-ip-address: true
+server:
+  port: 11003

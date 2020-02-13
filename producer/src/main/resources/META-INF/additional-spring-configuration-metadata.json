@@ -1,0 +1,13 @@
+{
+  "properties": [
+    {
+      "name": "hdd.producer.inboundDir",
+      "type": "java.lang.String",
+      "description": "Directory for inbound data."
+    },
+    {
+      "name": "hdd.producer.kafkaTopic",
+      "type": "java.lang.String",
+      "description": "Description for hdd.producer.kafkaTopic."
+    }
+  ] }

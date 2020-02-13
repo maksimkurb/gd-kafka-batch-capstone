@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: producer
+  cloud:
+    consul:
+      discovery:
+        healthCheckPath: /actuator/health
+        healthCheckInterval: 15s
+
+hdd:
+  producer:
+    kafkaTopic: hddReport
+    inboundDir: ../data/inbound
+    workingDir: ../data/working
+    archiveDir: ../data/archive

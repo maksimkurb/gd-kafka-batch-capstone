@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: consumer
+  cloud:
+    consul:
+      discovery:
+        healthCheckPath: /actuator/health
+        healthCheckInterval: 15s
+  datasource:
+    url: jdbc:postgresql://localhost:5432/spring
+    username: spring
+    password: spring
+  batch:
+    job:
+      enabled: false
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+hdd:
+  batch:
+    chunkSize: 5000
